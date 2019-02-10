@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-const sVersion = "ver 0.1.5 (J210)";
+const sVersion = "ver 0.1.6 (J210)";
 
 const sFTime = () => {
   let oDateNow = new Date();
@@ -15,6 +15,7 @@ export class Header extends Component {
       <div className="App">
         <header className="App-header">
           <p id="text">[ Learn React Mx, {sVersion} ]</p>
+          <div id="form">form here...</div>
           <div id="textarea">textareas here...</div>
           <br />
         </header>
@@ -32,6 +33,37 @@ export class Textareas extends React.Component {
         <span> </span>
         <textarea name="t2" cols={25} rows={15} defaultValue="textarea-2" />
       </div>
+    );
+  }
+}
+
+export class NameForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Name:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
     );
   }
 }
