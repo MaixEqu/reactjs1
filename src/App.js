@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-const sVersion = "ver 0.1.7 (J210)";
+const sVersion = "ver 0.1.8 (J210)";
 
 const sFTime = () => {
   let oDateNow = new Date();
@@ -18,6 +18,7 @@ export class Header extends Component {
           <div id="textarea2">textareas 2 here...</div>
           <div id="form">form here...</div>
           <div id="textarea">textareas here...</div>
+          <div id="calc">calc here...</div>
           <br />
         </header>
         <footer>{time_ver}</footer>
@@ -99,6 +100,39 @@ export class EssayForm extends React.Component {
         <br />
         <input type="submit" value="Submit" />
       </form>
+    );
+  }
+}
+
+function BoilingVerdict(props) {
+  if (props.celsius >= 100) {
+    return <p>The water would boil.</p>;
+  }
+  return <p>The water would not boil.</p>;
+}
+
+export class Calculator extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {temperature: ''};
+  }
+
+  handleChange(e) {
+    this.setState({temperature: e.target.value});
+  }
+
+  render() {
+    const temperature = this.state.temperature;
+    return (
+      <fieldset>
+        <legend>Enter temperature in Celsius:</legend>
+        <input
+          value={temperature}
+          onChange={this.handleChange} />
+        <BoilingVerdict
+          celsius={parseFloat(temperature)} />
+      </fieldset>
     );
   }
 }
