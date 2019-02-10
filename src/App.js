@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-const sVersion = "ver 0.1.6 (J210)";
+const sVersion = "ver 0.1.7 (J210)";
 
 const sFTime = () => {
   let oDateNow = new Date();
@@ -15,6 +15,7 @@ export class Header extends Component {
       <div className="App">
         <header className="App-header">
           <p id="text">[ Learn React Mx, {sVersion} ]</p>
+          <div id="textarea2">textareas 2 here...</div>
           <div id="form">form here...</div>
           <div id="textarea">textareas here...</div>
           <br />
@@ -68,27 +69,36 @@ export class NameForm extends React.Component {
   }
 }
 
-/*
-export var Editor = React.createClass({
-  displayName: 'Editor',
-  propTypes: {
-    name: React.PropTypes.string.isRequired
-  },
-  getInitialState: function() { 
-    return {
-      value: this.props.name
+export class EssayForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 'Please write an essay about your favorite DOM element.'
     };
-  },
-  handleChange: function(event) {
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
     this.setState({value: event.target.value});
-  },
-  render: function() {
+  }
+
+  handleSubmit(event) {
+    alert('An essay was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
     return (
-      <form id="noter-save-form" method="POST">
-        <textarea id="noter-text-area" name="textarea" value={this.state.value} onChange={this.handleChange} />
-        <input type="submit" value="Save" />
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Essay:<br />
+          <textarea cols={25} rows={15} value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <br />
+        <input type="submit" value="Submit" />
       </form>
     );
   }
-});
-*/
+}
