@@ -1,6 +1,5 @@
 {
     "editor.tabSize": 2,
-    esve
     "editor.detectIndentation": false,
     "gitlens.currentLine.enabled": false,
     "files.exclude": {

@@ -1,24 +1,13 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
-// import './App.css';
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React (Mx, ver 0.1.1, J210)
-          </a>
+          <div>[ Learn React (Mx, ver 0.1.3, J210) ]</div>
         </header>
       </div>
     );
   }
 }
-
-export default App;
