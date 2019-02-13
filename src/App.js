@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import ReactFileReader from 'react-file-reader';
 
-const sVersion = "ver 0.2.0 (J210)";
+const sVersion = "ver 0.2.1 (J213)+";
 
 const sFTime = () => {
   let oDateNow = new Date();
@@ -15,16 +16,30 @@ export class Header extends Component {
       <div className="App">
         <header className="App-header">
           <p id="text">[ Learn React Mx, {sVersion} ]</p>
-          <div id="textarea2">textareas 2 here...</div>
-          <div id="form">form here...</div>
-          <div id="textarea">textareas here...</div>
-          <div id="calc">calc here...</div>
-          <div id="calc2">calc 2 here...</div>
+          <div id="_textarea2">textareas 2 here...</div>
+          <div id="_form">form here...</div>
+          <div id="_textarea">textareas here...</div>
+          <div id="_calc">calc here...</div>
+          <div id="_calc2">calc 2 here...</div>
+          <div id="fileread">fileread here...</div>
           <br />
         </header>
         <footer>{time_ver}</footer>
       </div>
     );
+  }
+}
+
+export class Fileread extends React.Component {
+  handleFiles = files => {
+    console.log(files)
+  }
+  render () {
+    return (
+      <ReactFileReader handleFiles={this.handleFiles}>
+      <button className='btn'>Upload</button>
+      </ReactFileReader>
+    )
   }
 }
 
