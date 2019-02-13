@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import ReactFileReader from 'react-file-reader';
 
-const sVersion = "ver 0.2.1 (J213)+";
+import data from './a.json';
+//import data from './b.txt';
+
+const sVersion = "ver 0.2.1 (J213)";
 
 const sFTime = () => {
   let oDateNow = new Date();
+  //import data from './a.json';
   return oDateNow.toISOString().replace(/[A-Z]/g, " ").trim(); // + '.' + add3Zero(oDateNow.getMilliseconds());
 };
 //const add3Zero = (n) => ("000" + n).slice(-3);
 
 export class Header extends Component {
   render() {
-    let time_ver = `[${sFTime()}]: ${sVersion}`;
+    let s = data.lineno || "__"
+    let time_ver = s + `. [${sFTime()}]: ${sVersion}`;
     return (
       <div className="App">
         <header className="App-header">
