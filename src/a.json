@@ -1,0 +1,6 @@
+{
+  "message": "ReferenceError: require is not defined",
+  "filename": "https://stacksnippets.net/js",
+  "lineno": 2113,
+  "colno": 5
+}
