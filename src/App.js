@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import ReactFileReader from 'react-file-reader';
 
-import data from './a.json';
+// import data from './a.json';
 //import data from './b.txt';
 
-const sVersion = "ver 0.2.1 (J213)";
+const sVersion = "ver 0.2.2 (J2L)";
 
 const sFTime = () => {
   let oDateNow = new Date();
@@ -15,7 +15,8 @@ const sFTime = () => {
 
 export class Header extends Component {
   render() {
-    let s = data.lineno || "__"
+    //let s = data.lineno || "__"
+    let s = this.props.location;
     let time_ver = s + `. [${sFTime()}]: ${sVersion}`;
     return (
       <div className="App">
